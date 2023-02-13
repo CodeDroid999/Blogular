@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="row">
+		<div class="col"></div>
+		<div class="col">
+			<div class="card" style="width: 30rem;">
+				<div class="card-body">
+					<form #createBlogForm="ngForm" (ngSubmit)="editThisBlog()">
+						<div class="form-group">
+							<label>Blog Title</label>
+							<input name="blogTitle" [(ngModel)]="currentBlog.title" class="form-control"
+								#title="ngModel" placeholder="Enter blog Title" required>
+								<div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+										Blog Title is required 
+									   </div>
+						</div>
+						<div class="form-group">
+							<label>Description</label>
+							<input type="text" name="blogDescription" [(ngModel)]="currentBlog.description"
+								class="form-control" #description="ngModel" placeholder="Enter Description" required>
+								<div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+										Blog Title is required 
+									   </div>
+						</div>
+						<div class="form-group">
+							<label>Enter the blog body</label>
+							<textarea name="blogBodyHtml" [(ngModel)]="currentBlog.bodyHtml" #bodyHtml="ngModel"
+								class="form-control" rows="3" required></textarea>
+						</div>
+						<div class="form-group">
+							<label>Category</label>
+							<select [(ngModel)]="currentBlog.category" #category="ngModel" name="blogCategory"
+								class="form-control" id="category" required>
+								<option *ngFor="let category of possibleCategories" [value]="category">{{category}}
+								</option>
+							</select>
+						</div>
+						<button type="submit" [disabled]="!createBlogForm.form.valid" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col"></div>
+	</div>
+</div>

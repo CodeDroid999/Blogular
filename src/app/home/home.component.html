@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="card-deck row">
+		<div *ngFor="let blog of allBlogs" class="col-xs-12 col-sm-6 col-md-4">
+
+			<div class="card">
+
+				<div class="view overlay">
+					<img class="card-img-top" src='assets/images/{{blog.category | titlecase}}.jpg' alt="Card image cap">
+					<a href="#!">
+						<div class="mask rgba-white-slight"></div>
+					</a>
+				</div>
+
+				<div class="card-body">
+
+					<h4 class="card-title">{{blog.title}}</h4>
+					<h6 class="card-subtitle mb-2 text-muted">Posted on
+						{{blog.created | date}} by {{blog.author}}</h6>
+
+					<p class="card-text">{{blog.description}}</p>
+
+					<button [routerLink]="['/blog',blog.blogId]" type="button" class="btn btn-outline-primary">Read more</button>
+				</div>
+			</div>
+
+		</div>
+		<button (click)="goGoogle()" type="button" class="btn btn-outline-primary">Read more</button>
+	</div>
+</div>

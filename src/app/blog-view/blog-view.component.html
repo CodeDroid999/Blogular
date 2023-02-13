@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row" *ngIf="currentBlog">
+		<div class="col-xs-12 col-sm-6">
+
+			<div class="card">
+
+				<div class="view overlay">
+					<img class="card-img-top" src='assets/images/{{currentBlog.category | titlecase}}.jpg'
+						alt="Card image cap">
+					<a href="#!">
+						<div class="mask rgba-white-slight"></div>
+					</a>
+				</div>
+
+				<div class="card-body">
+
+					<h4 class="card-title">{{currentBlog.title | uppercase}}</h4>
+					<h6 class="card-subtitle mb-2 text-muted">Posted on
+						{{currentBlog.created | date}} by {{currentBlog.author}}</h6>
+
+					<p class="card-text">{{currentBlog.description}}</p>
+
+					<div class="col">
+						<button [routerLink]="['/edit',currentBlog.blogId]" type="button"
+							class="btn btn-outline-warning">Edit</button>
+						<button (click)="deleteThisBlog()" type="button" class="btn btn-outline-danger">Delete</button>
+						<button (click)="goBackToPreviousPage()" type="button" class="btn btn-outline-secondary">Go
+							Back</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

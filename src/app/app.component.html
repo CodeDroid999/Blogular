@@ -1,0 +1,27 @@
+<head>
+  <base href="/">
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
+  <a class="navbar-brand" [routerLink]="['/home']">Blog Application</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li [routerLinkActive]="['active']" class="nav-item">
+        <a class="nav-link" [routerLink]="['/home']">Home <span class="sr-only"></span></a>
+      </li>
+      <li [routerLinkActive]="['active']" class="nav-item">
+        <a class="nav-link" [routerLink]="['/about']">About</a>
+      </li>
+       <li [routerLinkActive]="['active']" class="nav-item">
+        <a class="nav-link" [routerLink]="['/create']">Post a Blog</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
